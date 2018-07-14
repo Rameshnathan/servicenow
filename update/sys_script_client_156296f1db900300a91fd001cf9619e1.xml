@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>budget</field>
+        <global>true</global>
+        <messages/>
+        <name>End Date Validation</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+	//Type appropriate comment here, and begin script below
+	
+	if(g_form.getValue('start_date') == "")
+		{
+		return;
+	}
+	if(g_form.getValue('end_date') < g_form.getValue('start_date')) {
+        g_form.clearMessages();  
+
+    g_form.addErrorMessage(g_form.getLabelOf('end_date') + ' ' 
+	+ getMessage('must be after') + ' ' + g_form.getLabelOf('start_date'));
+        return false;
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>ramesh.ranganathan@csscorp.com</sys_created_by>
+        <sys_created_on>2017-08-01 09:39:39</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>156296f1db900300a91fd001cf9619e1</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>End Date Validation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Marketing Events Application" source="x_140187_marketing">75b43d31db100300a91fd001cf9619b2</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Marketing Events Application">75b43d31db100300a91fd001cf9619b2</sys_scope>
+        <sys_update_name>sys_script_client_156296f1db900300a91fd001cf9619e1</sys_update_name>
+        <sys_updated_by>ramesh.ranganathan@csscorp.com</sys_updated_by>
+        <sys_updated_on>2017-08-01 09:43:37</sys_updated_on>
+        <table>x_140187_marketing_marketing_events_application</table>
+        <type>onSubmit</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
